@@ -1,0 +1,154 @@
+protocol     gru                   isrgru                transformer           isr_transformer       mamba                 isr_mamba           
+biwi_s       19.88±0.61          21.00±0.68          16.84±1.48          19.26±0.74          14.50±1.47          14.38±1.82          
+biwi_w       24.00±1.02          25.30±1.18          20.45±1.18          21.72±1.19          18.48±1.09          17.59±1.29          
+ias_a        23.60±0.53          23.82±0.11          28.15±1.35          28.58±0.36          28.73±0.88          28.49±0.32          
+ias_b        22.95±0.54          23.11±0.06          27.26±0.65          27.42±0.20          28.15±0.50          27.85±0.12          
+kgbd         16.36±0.11          17.02±0.21          23.24±0.10          24.28±0.31          22.88±0.38          22.91±0.27          
+kgbd_dedup   16.27±0.09          16.91±0.24          23.04±0.16          24.13±0.28          --                   --                   
+
+ISRT deltas (ISR - base), mean mAP pp:
+biwi_s       gru->isrgru: +1.12pp (3/3); transformer->isr_transformer: +2.42pp (3/3); mamba->isr_mamba: -0.11pp (2/3)
+biwi_w       gru->isrgru: +1.30pp (3/3); transformer->isr_transformer: +1.26pp (2/3); mamba->isr_mamba: -0.89pp (0/3)
+ias_a        gru->isrgru: +0.22pp (2/3); transformer->isr_transformer: +0.43pp (2/3); mamba->isr_mamba: -0.24pp (2/3)
+ias_b        gru->isrgru: +0.17pp (2/3); transformer->isr_transformer: +0.16pp (2/3); mamba->isr_mamba: -0.30pp (1/3)
+kgbd         gru->isrgru: +0.66pp (3/3); transformer->isr_transformer: +1.04pp (3/3); mamba->isr_mamba: +0.03pp (1/3)
+kgbd_dedup   gru->isrgru: +0.63pp (3/3); transformer->isr_transformer: +1.09pp (3/3)
+
+KGBD dedup seed detail:
+  gru              s42=16.18, s123=16.28, s2026=16.36
+  isrgru           s42=17.00, s123=17.09, s2026=16.63
+  transformer      s42=22.85, s123=23.09, s2026=23.17
+  isr_transformer  s42=24.41, s123=24.12, s2026=23.85
+
+Official KGBD seed detail:
+  gru              s42=16.26, s123=16.33, s2026=16.48
+  isrgru           s42=17.11, s123=17.17, s2026=16.78
+  transformer      s42=23.13, s123=23.26, s2026=23.34
+  isr_transformer  s42=24.63, s123=24.15, s2026=24.06
+  mamba            s42=23.31, s123=22.72, s2026=22.60
+  isr_mamba        s42=22.99, s123=22.61, s2026=23.13
+
+Cell provenance (protocol, model, seed -> result path):
+  biwi_s      gctr             s42    -> transg_official_biwi_layoutfix_20260808/biwi_s/gctr/seed42/result.json
+  biwi_s      gctr             s123   -> transg_official_biwi_layoutfix_20260808/biwi_s/gctr/seed123/result.json
+  biwi_s      gctr             s2026  -> transg_official_biwi_layoutfix_20260808/biwi_s/gctr/seed2026/result.json
+  biwi_s      gru              s42    -> transg_official_biwi_layoutfix_20260808/biwi_s/gru/seed42/result.json
+  biwi_s      gru              s123   -> transg_official_biwi_layoutfix_20260808/biwi_s/gru/seed123/result.json
+  biwi_s      gru              s2026  -> transg_official_biwi_layoutfix_20260808/biwi_s/gru/seed2026/result.json
+  biwi_s      isr_mamba        s42    -> isr_transfer_pilot_20260805/biwi_s_isr_mamba_42/result.json
+  biwi_s      isr_mamba        s123   -> isr_transfer_pilot_20260805/biwi_s_isr_mamba_123/result.json
+  biwi_s      isr_mamba        s2026  -> isr_transfer_pilot_20260805/biwi_s_isr_mamba_2026/result.json
+  biwi_s      isr_transformer  s42    -> isr_transfer_pilot_20260805/biwi_s_isr_transformer_42/result.json
+  biwi_s      isr_transformer  s123   -> isr_transfer_pilot_20260805/biwi_s_isr_transformer_123/result.json
+  biwi_s      isr_transformer  s2026  -> isr_transfer_pilot_20260805/biwi_s_isr_transformer_2026/result.json
+  biwi_s      isrgru           s42    -> isrgru_pos_fix_20260808/biwi_s/isrgru/seed42/result.json
+  biwi_s      isrgru           s123   -> isrgru_pos_fix_20260808/biwi_s/isrgru/seed123/result.json
+  biwi_s      isrgru           s2026  -> isrgru_pos_fix_20260808/biwi_s/isrgru/seed2026/result.json
+  biwi_s      mamba            s42    -> transg_official_biwi_layoutfix_20260808/biwi_s/mamba/seed42/result.json
+  biwi_s      mamba            s123   -> transg_official_biwi_layoutfix_20260808/biwi_s/mamba/seed123/result.json
+  biwi_s      mamba            s2026  -> transg_official_biwi_layoutfix_20260808/biwi_s/mamba/seed2026/result.json
+  biwi_s      stgcn            s42    -> transg_official_biwi_layoutfix_20260808/biwi_s/stgcn/seed42/result.json
+  biwi_s      stgcn            s123   -> transg_official_biwi_layoutfix_20260808/biwi_s/stgcn/seed123/result.json
+  biwi_s      stgcn            s2026  -> transg_official_biwi_layoutfix_20260808/biwi_s/stgcn/seed2026/result.json
+  biwi_s      transformer      s42    -> transg_official_biwi_layoutfix_20260808/biwi_s/transformer/seed42/result.json
+  biwi_s      transformer      s123   -> transg_official_biwi_layoutfix_20260808/biwi_s/transformer/seed123/result.json
+  biwi_s      transformer      s2026  -> transg_official_biwi_layoutfix_20260808/biwi_s/transformer/seed2026/result.json
+  biwi_w      gctr             s42    -> transg_official_biwi_layoutfix_20260808/biwi_w/gctr/seed42/result.json
+  biwi_w      gctr             s123   -> transg_official_biwi_layoutfix_20260808/biwi_w/gctr/seed123/result.json
+  biwi_w      gctr             s2026  -> transg_official_biwi_layoutfix_20260808/biwi_w/gctr/seed2026/result.json
+  biwi_w      gru              s42    -> transg_official_biwi_layoutfix_20260808/biwi_w/gru/seed42/result.json
+  biwi_w      gru              s123   -> transg_official_biwi_layoutfix_20260808/biwi_w/gru/seed123/result.json
+  biwi_w      gru              s2026  -> transg_official_biwi_layoutfix_20260808/biwi_w/gru/seed2026/result.json
+  biwi_w      isr_mamba        s42    -> isr_transfer_pilot_20260805/biwi_w_isr_mamba_42/result.json
+  biwi_w      isr_mamba        s123   -> isr_transfer_pilot_20260805/biwi_w_isr_mamba_123/result.json
+  biwi_w      isr_mamba        s2026  -> isr_transfer_pilot_20260805/biwi_w_isr_mamba_2026/result.json
+  biwi_w      isr_transformer  s42    -> isr_transfer_pilot_20260805/biwi_w_isr_transformer_42/result.json
+  biwi_w      isr_transformer  s123   -> isr_transfer_pilot_20260805/biwi_w_isr_transformer_123/result.json
+  biwi_w      isr_transformer  s2026  -> isr_transfer_pilot_20260805/biwi_w_isr_transformer_2026/result.json
+  biwi_w      isrgru           s42    -> isrgru_pos_fix_20260808/biwi_w/isrgru/seed42/result.json
+  biwi_w      isrgru           s123   -> isrgru_pos_fix_20260808/biwi_w/isrgru/seed123/result.json
+  biwi_w      isrgru           s2026  -> isrgru_pos_fix_20260808/biwi_w/isrgru/seed2026/result.json
+  biwi_w      mamba            s42    -> transg_official_biwi_layoutfix_20260808/biwi_w/mamba/seed42/result.json
+  biwi_w      mamba            s123   -> transg_official_biwi_layoutfix_20260808/biwi_w/mamba/seed123/result.json
+  biwi_w      mamba            s2026  -> transg_official_biwi_layoutfix_20260808/biwi_w/mamba/seed2026/result.json
+  biwi_w      stgcn            s42    -> transg_official_biwi_layoutfix_20260808/biwi_w/stgcn/seed42/result.json
+  biwi_w      stgcn            s123   -> transg_official_biwi_layoutfix_20260808/biwi_w/stgcn/seed123/result.json
+  biwi_w      stgcn            s2026  -> transg_official_biwi_layoutfix_20260808/biwi_w/stgcn/seed2026/result.json
+  biwi_w      transformer      s42    -> transg_official_biwi_layoutfix_20260808/biwi_w/transformer/seed42/result.json
+  biwi_w      transformer      s123   -> transg_official_biwi_layoutfix_20260808/biwi_w/transformer/seed123/result.json
+  biwi_w      transformer      s2026  -> transg_official_biwi_layoutfix_20260808/biwi_w/transformer/seed2026/result.json
+  ias_a       grgru            s42    -> transg_official_ias_confirm_20260808/ias_a/grgru/seed42/result.json
+  ias_a       grgru            s123   -> transg_official_ias_confirm_20260808/ias_a/grgru/seed123/result.json
+  ias_a       grgru            s2026  -> transg_official_ias_confirm_20260808/ias_a/grgru/seed2026/result.json
+  ias_a       gru              s42    -> transg_official_ias_confirm_20260808/ias_a/gru/seed42/result.json
+  ias_a       gru              s123   -> transg_official_ias_confirm_20260808/ias_a/gru/seed123/result.json
+  ias_a       gru              s2026  -> transg_official_ias_confirm_20260808/ias_a/gru/seed2026/result.json
+  ias_a       isr_mamba        s42    -> isr_transfer_pilot_20260805/ias_a_isr_mamba_42/result.json
+  ias_a       isr_mamba        s123   -> isr_transfer_pilot_20260805/ias_a_isr_mamba_123/result.json
+  ias_a       isr_mamba        s2026  -> isr_transfer_pilot_20260805/ias_a_isr_mamba_2026/result.json
+  ias_a       isr_transformer  s42    -> isr_transfer_pilot_20260805/ias_a_isr_transformer_42/result.json
+  ias_a       isr_transformer  s123   -> isr_transfer_pilot_20260805/ias_a_isr_transformer_123/result.json
+  ias_a       isr_transformer  s2026  -> isr_transfer_pilot_20260805/ias_a_isr_transformer_2026/result.json
+  ias_a       isrgru           s42    -> isrgru_pos_fix_20260808/ias_a/isrgru/seed42/result.json
+  ias_a       isrgru           s123   -> isrgru_pos_fix_20260808/ias_a/isrgru/seed123/result.json
+  ias_a       isrgru           s2026  -> isrgru_pos_fix_20260808/ias_a/isrgru/seed2026/result.json
+  ias_a       mamba            s42    -> isr_transfer_pilot_20260805/ias_a_mamba_42/result.json
+  ias_a       mamba            s123   -> isr_transfer_pilot_20260805/ias_a_mamba_123/result.json
+  ias_a       mamba            s2026  -> isr_transfer_pilot_20260805/ias_a_mamba_2026/result.json
+  ias_a       transformer      s42    -> isr_transfer_pilot_20260805/ias_a_transformer_42/result.json
+  ias_a       transformer      s123   -> isr_transfer_pilot_20260805/ias_a_transformer_123/result.json
+  ias_a       transformer      s2026  -> isr_transfer_pilot_20260805/ias_a_transformer_2026/result.json
+  ias_b       grgru            s42    -> transg_official_ias_confirm_20260808/ias_b/grgru/seed42/result.json
+  ias_b       grgru            s123   -> transg_official_ias_confirm_20260808/ias_b/grgru/seed123/result.json
+  ias_b       grgru            s2026  -> transg_official_ias_confirm_20260808/ias_b/grgru/seed2026/result.json
+  ias_b       gru              s42    -> transg_official_ias_confirm_20260808/ias_b/gru/seed42/result.json
+  ias_b       gru              s123   -> transg_official_ias_confirm_20260808/ias_b/gru/seed123/result.json
+  ias_b       gru              s2026  -> transg_official_ias_confirm_20260808/ias_b/gru/seed2026/result.json
+  ias_b       isr_mamba        s42    -> isr_transfer_pilot_20260805/ias_b_isr_mamba_42/result.json
+  ias_b       isr_mamba        s123   -> isr_transfer_pilot_20260805/ias_b_isr_mamba_123/result.json
+  ias_b       isr_mamba        s2026  -> isr_transfer_pilot_20260805/ias_b_isr_mamba_2026/result.json
+  ias_b       isr_transformer  s42    -> isr_transfer_pilot_20260805/ias_b_isr_transformer_42/result.json
+  ias_b       isr_transformer  s123   -> isr_transfer_pilot_20260805/ias_b_isr_transformer_123/result.json
+  ias_b       isr_transformer  s2026  -> isr_transfer_pilot_20260805/ias_b_isr_transformer_2026/result.json
+  ias_b       isrgru           s42    -> isrgru_pos_fix_20260808/ias_b/isrgru/seed42/result.json
+  ias_b       isrgru           s123   -> isrgru_pos_fix_20260808/ias_b/isrgru/seed123/result.json
+  ias_b       isrgru           s2026  -> isrgru_pos_fix_20260808/ias_b/isrgru/seed2026/result.json
+  ias_b       mamba            s42    -> isr_transfer_pilot_20260805/ias_b_mamba_42/result.json
+  ias_b       mamba            s123   -> isr_transfer_pilot_20260805/ias_b_mamba_123/result.json
+  ias_b       mamba            s2026  -> isr_transfer_pilot_20260805/ias_b_mamba_2026/result.json
+  ias_b       transformer      s42    -> isr_transfer_pilot_20260805/ias_b_transformer_42/result.json
+  ias_b       transformer      s123   -> isr_transfer_pilot_20260805/ias_b_transformer_123/result.json
+  ias_b       transformer      s2026  -> isr_transfer_pilot_20260805/ias_b_transformer_2026/result.json
+  kgbd        gru              s42    -> transg_official_kgbd_confirm_20260808/gru/seed42/result.json
+  kgbd        gru              s123   -> transg_official_kgbd_confirm_20260808/gru/seed123/result.json
+  kgbd        gru              s2026  -> transg_official_kgbd_confirm_20260808/gru/seed2026/result.json
+  kgbd        isr_mamba        s42    -> isr_transfer_pilot_20260805/kgbd_isr_mamba_42/result.json
+  kgbd        isr_mamba        s123   -> isr_transfer_pilot_20260805/kgbd_isr_mamba_123/result.json
+  kgbd        isr_mamba        s2026  -> isr_transfer_pilot_20260805/kgbd_isr_mamba_2026/result.json
+  kgbd        isr_transformer  s42    -> isr_transfer_pilot_20260805/isr_transformer_42/result.json
+  kgbd        isr_transformer  s123   -> isr_transfer_pilot_20260805/isr_transformer_123/result.json
+  kgbd        isr_transformer  s2026  -> isr_transfer_pilot_20260805/isr_transformer_2026/result.json
+  kgbd        isrgru           s42    -> isrgru_pos_fix_20260808/kgbd/isrgru/seed42/result.json
+  kgbd        isrgru           s123   -> isrgru_pos_fix_20260808/kgbd/isrgru/seed123/result.json
+  kgbd        isrgru           s2026  -> isrgru_pos_fix_20260808/kgbd/isrgru/seed2026/result.json
+  kgbd        mamba            s42    -> isr_transfer_pilot_20260805/kgbd_mamba_42/result.json
+  kgbd        mamba            s123   -> isr_transfer_pilot_20260805/kgbd_mamba_123/result.json
+  kgbd        mamba            s2026  -> isr_transfer_pilot_20260805/kgbd_mamba_2026/result.json
+  kgbd        rcgru            s42    -> transg_official_kgbd_confirm_20260808/rcgru/seed42/result.json
+  kgbd        rcgru            s123   -> transg_official_kgbd_confirm_20260808/rcgru/seed123/result.json
+  kgbd        rcgru            s2026  -> transg_official_kgbd_confirm_20260808/rcgru/seed2026/result.json
+  kgbd        transformer      s42    -> isr_transfer_pilot_20260805/transformer_42/result.json
+  kgbd        transformer      s123   -> isr_transfer_pilot_20260805/transformer_123/result.json
+  kgbd        transformer      s2026  -> isr_transfer_pilot_20260805/transformer_2026/result.json
+  kgbd_dedup  gru              s42    -> kgbd_dedup_20260806/confirm_train_removal/gru_42/result.json
+  kgbd_dedup  gru              s123   -> kgbd_dedup_20260806/confirm_train_removal/gru_123/result.json
+  kgbd_dedup  gru              s2026  -> kgbd_dedup_20260806/confirm_train_removal/gru_2026/result.json
+  kgbd_dedup  isr_transformer  s42    -> kgbd_dedup_20260806/confirm_train_removal/isr_transformer_42/result.json
+  kgbd_dedup  isr_transformer  s123   -> kgbd_dedup_20260806/confirm_train_removal/isr_transformer_123/result.json
+  kgbd_dedup  isr_transformer  s2026  -> kgbd_dedup_20260806/confirm_train_removal/isr_transformer_2026/result.json
+  kgbd_dedup  isrgru           s42    -> isrgru_pos_fix_20260808/kgbd_dedup/isrgru/seed42/result.json
+  kgbd_dedup  isrgru           s123   -> isrgru_pos_fix_20260808/kgbd_dedup/isrgru/seed123/result.json
+  kgbd_dedup  isrgru           s2026  -> isrgru_pos_fix_20260808/kgbd_dedup/isrgru/seed2026/result.json
+  kgbd_dedup  transformer      s42    -> kgbd_dedup_20260806/confirm_train_removal/transformer_42/result.json
+  kgbd_dedup  transformer      s123   -> kgbd_dedup_20260806/confirm_train_removal/transformer_123/result.json
+  kgbd_dedup  transformer      s2026  -> kgbd_dedup_20260806/confirm_train_removal/transformer_2026/result.json

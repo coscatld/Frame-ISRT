@@ -1,0 +1,11 @@
+# Core runtime for Frame-ISRT (Python 3.10)
+# The Mamba backbone comparison additionally requires mamba_ssm (CUDA build);
+# every other model and all analysis scripts run without it.
+numpy>=1.24
+torch>=2.0
+scipy>=1.10
+matplotlib>=3.7
+pyyaml>=6.0
+
+# optional, only for the Mamba backbone:
+# mamba_ssm==2.1.0

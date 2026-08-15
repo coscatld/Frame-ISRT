@@ -1,0 +1,2 @@
+n_cells,d_abs_mean_pp,d_abs_pos,d_norm_mean_pp,d_norm_pos,d_normmatch_mean_pp,d_normmatch_pos,d_random_mean_pp,d_random_pos,d_abs_vs_normmatch_mean_pp,d_abs_vs_normmatch_pos_abs_gt,d_abs_vs_random_mean_pp,d_abs_vs_random_pos_abs_gt
+36,0.88,31/36,0.17,21/36,-0.04,16/36,0.1,17/36,0.92,30/36,0.77,36/36
