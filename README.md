@@ -29,7 +29,7 @@ training runs), only the `absolute` arm improves mAP:
 ```
 absolute        +0.83 pp   cluster-bootstrap 95% CI [+0.54, +1.16]   p < 0.0001
 normalized      +0.16 pp   CI [−0.09, +0.42]                         p = 0.27
-norm_matched    +0.01 pp   CI [−0.28, +0.29]                         p = 0.95
+norm_matched    +0.01 pp   CI [−0.27, +0.29]                         p = 0.95
 random_matched  +0.06 pp   CI [−0.20, +0.34]                         p = 0.68
 ```
 
@@ -38,6 +38,43 @@ independent training run `(dataset family, backbone, seed)` — the BIWI pair an
 the IAS pair share byte-identical training windows/checkpoints, and KGBD
 official vs. KGBD duplicate-safe are separate train sets. See
 `experiments/scale_content_controls/aggregate/pooled_frame_stats_cluster.md`.
+
+## Figures
+
+The five manuscript figures. The four analysis plots are generated from
+`results/per_seed_frame.csv`; the method overview is a schematic. File names are
+the repository's, and the manuscript figure number is given in each caption.
+
+**Figure 1 — Method overview** (`scripts/make_method_figure.py`). Panel (a):
+Frame-ISRT re-introduces absolute scale through a zero-initialized, scalar-gated
+residual token on a scale-normalizing encoder. Panel (b): the same construction
+on TranSG, whose main path already preserves scale — the boundary test.
+
+![Method overview: Frame-ISRT and the TranSG boundary test](figures/fig_method_overview.png)
+
+**Figure 2 — Five-seed mean ΔmAP (pp) by protocol × scale-content arm**
+(`scripts/make_p2_figures.py`). The absolute arm is positive on most protocols;
+the three controls cluster near zero.
+
+![Protocol x arm heatmap](figures/fig4_protocol_arm_heatmap.png)
+
+**Figure 3 — Pooled arm effect with cluster block bootstrap 95% CI**
+(`scripts/make_p2_figures.py`). Only the absolute arm excludes zero.
+
+![Pooled arm effect forest plot](figures/fig1_forest_pooled.png)
+
+**Figure 4 — Per-cell paired scatter** (`scripts/make_p2_figures.py`). The
+absolute arm against the `norm_matched` (left) and `random_matched` (right)
+controls, with the identity line; the absolute arm is above the control in 50/60
+and 60/60 cells respectively.
+
+![Per-cell paired scatter](figures/fig2_cross_arm_paired.png)
+
+**Figure 5 — Mean learned residual gate σ(g) per arm** (`scripts/make_p2_figures.py`),
+with SD error bars. The gate stays near 0.20 for the three structured arms and
+drops to 0.127 for random-magnitude noise.
+
+![Residual gate by arm](figures/fig3_gate.png)
 
 ## Repository layout
 
@@ -54,7 +91,8 @@ experiments/    one directory per experiment with run scripts and aggregates
     scale_normalization_ablation/ normalized-residual ablation
     transg_clean/                TranSG clean-reproduction protocol
     pe_determinism/              deterministic Laplacian positional-encoding fix
-figures/        publication figures (forest, cross-arm paired, gate, heatmap)
+figures/        publication figures (method overview, forest, cross-arm paired,
+                gate, heatmap) — see Figures above
 docs/audits/    data-provenance audits (shared train windows, protocol
                 cleanliness, KGBD counts)
 docs/reproducibility.md   end-to-end reproducibility manifest
@@ -78,7 +116,8 @@ python experiments/scale_content_controls/scripts/cross_arm_paired_stats.py
 python experiments/scale_content_controls/scripts/arm_backbone_interaction.py
 
 # publication figures              -> figures/
-python scripts/make_p2_figures.py
+python scripts/make_p2_figures.py       # forest, paired, gate, heatmap
+python scripts/make_method_figure.py    # method overview (vector PDF + PNG)
 ```
 
 ## Running the code

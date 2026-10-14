@@ -105,7 +105,7 @@ def cluster_ci(cells, arm, samples=100_000, seed=20260813):
 
 
 def fig1_forest(cells):
-    fig, ax = plt.subplots(figsize=(5.2, 3.2))
+    fig, ax = plt.subplots(figsize=(6.2, 3.2))
     rows = []
     for arm, label in zip(ARMS, ARM_LABELS):
         d = [c[arm] for c in cells]
@@ -124,8 +124,9 @@ def fig1_forest(cells):
     ax.set_yticklabels([r[0] for r in rows])
     ax.invert_yaxis()
     ax.set_xlabel("pooled mean ΔmAP (pp), 5 seeds, 40 clusters / 60 cells")
-    ax.set_xlim(-1.0, 2.0)
-    ax.set_title("Scale-content control arms (cluster bootstrap 95% CI)")
+    ax.set_xlim(-0.8, 2.4)
+    ax.set_title("Scale-content control arms (cluster bootstrap 95% CI)",
+                 fontsize=10)
     fig.tight_layout()
     fig.savefig(OUT / "fig1_forest_pooled.png", dpi=300)
     plt.close(fig)
