@@ -3,8 +3,8 @@
 Controlled **Identity-Scale-Residual (ISR)** tokens for short-window 3D-skeleton
 person re-identification. This repository ships the code and per-seed results
 behind the Frame-track experiments of the manuscript
-*Controlled Scale Residual in Short-Window 3D Skeleton Person Re-identification:
-Content Contrast and Boundary Cases*.
+*Controlled Scale-Bearing Residuals for Short-Window 3D Skeleton Person
+Re-Identification: Magnitude-Matched Controls and the Scale-Deletion Boundary*.
 
 ## Idea in one paragraph
 
